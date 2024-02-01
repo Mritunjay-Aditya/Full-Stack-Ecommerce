@@ -1,0 +1,11 @@
+{
+  "name": "full-stack-ecommerce",
+  "version": "1.0.0",
+  "description": "full stack ecommerce web site backend bone by aditya mritunjay,front end done by rajat kumar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aditya",
+  "license": "ISC"
+}
