@@ -21,14 +21,15 @@ import healthcheckRouter from "./routes/healthcheck.routes.js"
 
 import commentRouter from "./routes/comment.routes.js"
 
-import dashboardRouter from "./routes/dashboard.routes.js"
 
 //routes declaration
+
 app.use("/api/v1/healthcheck", healthcheckRouter)
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/comments", commentRouter)
-app.use("/api/v1/dashboard", dashboardRouter)
-
-// http://localhost:8000/api/v1/users/register
+app.get("/api/v1/home", (req, res) => {
+    res.send("Welcome to the home page")
+})
+// http://localhost:8000/api/v1/users/home
 
 export { app }
