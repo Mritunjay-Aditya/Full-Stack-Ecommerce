@@ -20,6 +20,7 @@ import userRouter from './routes/user.routes.js'
 import healthcheckRouter from "./routes/healthcheck.routes.js"
 
 import commentRouter from "./routes/comment.routes.js"
+import productRouter from "./routes/product.routes.js"
 
 
 //routes declaration
@@ -30,6 +31,7 @@ app.use("/api/v1/comments", commentRouter)
 app.get("/api/v1/home", (req, res) => {
     res.send("Welcome to the home page")
 })
+app.use("/api/v1/addproduct", productRouter)
 // http://localhost:8000/api/v1/users/home
 
 export { app }
