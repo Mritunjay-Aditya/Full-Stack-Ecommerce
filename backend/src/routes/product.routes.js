@@ -2,6 +2,8 @@ import { Router } from "express";
 console.log("running product.routes");
 import {
     registerProduct,
+    removeProduct,
+    allProducts,
 }from "../controllers/product.controller.js";
 import {upload} from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
@@ -16,6 +18,9 @@ router.route("/addproduct").post(
         },
     ]),
     registerProduct
-    )
+    );
+router.route("/removeproduct").post(removeProduct);
+
+router.route("/allproducts").get(allProducts);
 
 export default router;

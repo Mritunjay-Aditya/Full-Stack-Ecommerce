@@ -71,6 +71,29 @@ const registerProduct = asyncHandler( async (req, res) => {
     )
 
 } )
+
+const removeProduct = asyncHandler(async (req, res) => {
+    const {id} = req.body
+    const removed=await Product.findOneAndDelete({ id: id });
+    console.log(removed, "Product removed Successfully")
+    if (!removed) {
+        throw new ApiError(500, "Something went wrong while removing the Product")
+    }
+
+    return res.status(201).json(
+        new ApiResponse(201, removeProduct, "Product removed Successfully")
+    )
+});
+
+const allProducts = asyncHandler(async (req, res) => {
+    let products = await Product.find().select({});
+    console.log(products, "all products fetched successfully")
+    return res.status(200).json(
+        new ApiResponse(200, products, "all products fetched successfully")
+    )
+});
 export {
     registerProduct,
+    removeProduct,
+    allProducts,
 }
