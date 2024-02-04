@@ -1,1 +1,1 @@
-export const DB_NAME="ecommerce backend"
+export const DB_NAME="ecommerce_backend"

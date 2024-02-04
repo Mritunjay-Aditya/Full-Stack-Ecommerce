@@ -1,6 +1,7 @@
 import { Router } from "express";
+console.log("running product.routes");
 import {
-    registerProduct
+    registerProduct,
 }from "../controllers/product.controller.js";
 import {upload} from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";

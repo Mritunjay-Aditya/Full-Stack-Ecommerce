@@ -31,7 +31,7 @@ app.use("/api/v1/comments", commentRouter)
 app.get("/api/v1/home", (req, res) => {
     res.send("Welcome to the home page")
 })
-app.use("/api/v1/addproduct", productRouter)
+app.use("/api/v1/product", productRouter)
 // http://localhost:8000/api/v1/users/home
 
 export { app }

@@ -1,5 +1,6 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import {ApiError} from "../utils/ApiError.js"
+console.log("running product.controller");
 import {Product} from "../models/product.model.js"
 import {uploadOnCloudinary} from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -14,22 +15,23 @@ const registerProduct = asyncHandler( async (req, res) => {
     //then handle the errors
 
 
-    const {id, name,category,new_price,old_price} = req.body
+    const {name,category,new_price,old_price,available} = req.body
+
 
     if (
-        [id,name,category,new_price,old_price].some((field) => field?.trim() === "")
+        [name,category,new_price,old_price,available].some((field) => field?.trim() === "")
     ) {
         throw new ApiError(400, "All fields are required")
     }
 
     const existedProduct = await Product.findOne({
-        $or: [{ id }, { name }]
+        $or: [{ name }]
     })
 
     if (existedProduct) {
         throw new ApiError(409, "Product with id or name already exists")
     }
-    //console.log(req.files);
+    console.log(req.files);
 
     const pro_image_LocalPath = req.files?.pro_image[0]?.path;
 
@@ -47,13 +49,14 @@ const registerProduct = asyncHandler( async (req, res) => {
    
 
     const product = await Product.create({
-        id,
         pro_image: pro_image.url,
         name, 
         category,
         new_price,
-        old_price
+        old_price,
+        available
     })
+    console.log(product)
 
 
     const createdProduct = await Product.findById(product.id).select(

@@ -2,11 +2,11 @@ import mongoose, {Schema} from "mongoose";
 console.log("running product.modles");
 const product_schema = new Schema(
     {
-        id:{
-            type:'Number',
-            required:true,
+        //_id:{
+           // type:Number,
+           // required:true,
 
-        },
+       //},
         name: {
             type: String,
             required: true,
@@ -35,10 +35,10 @@ const product_schema = new Schema(
         type:Date,
         default:Date.now,
      },
-     avilable:{
-        type:Boolean,
-        required:true,
-     }
+     available:{
+      type:Number,
+      required:true,
+     },
 },
 {
     timestamps:true
