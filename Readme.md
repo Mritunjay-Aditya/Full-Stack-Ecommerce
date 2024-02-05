@@ -1,1 +1,1 @@
-backend fro full stack ecmmerce website
+backend for full stack ecommerce website
